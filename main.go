@@ -22,10 +22,7 @@ var (
 	flagFirstRun  = flag.Bool("first-run", false, "Initialize the index with a geo point")
 	flagRegion    = flag.String("region", "bayarea", "pleb region - bayarea, dc, la, nyc, atl")
 	searchArea    string
-	createIndex   = esapi.IndicesCreateRequest{
-		Index: *flagIndexName,
-		Body:  strings.NewReader(""),
-	}
+
 	geopointMapping = esapi.IndicesPutMappingRequest{
 		Index:          []string{*flagIndexName},
 		AllowNoIndices: *&flagFirstRun,
@@ -63,6 +60,10 @@ func main() {
 		log.Println("Error creating elasticsearch client", err)
 	}
 	if *flagFirstRun {
+		createIndex := esapi.IndicesCreateRequest{
+			Index: *flagIndexName,
+			Body:  strings.NewReader(""),
+		}
 		fmt.Println(createIndex.Do(context.Background(), es))
 		fmt.Println(geopointMapping.Do(context.Background(), es))
 		return
