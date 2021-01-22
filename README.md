@@ -6,7 +6,7 @@ Retrieve data from Citizen and deliver to ElasticSearch with geo point data
 
 ## Why 
 
-Citizen App provides a great data set on recent physical security events in your area, however the data is only available for 1 week at a time. This project allows you to aggregate the data for future use. This allows you to analyze trends over larger periods of time.
+Citizen App provides a great dataset on recent physical security events in your area, however the data is only available for 1 week at a time. This project allows you to aggregate the data for future use, allowing you to analyze trends over larger periods of time.
 
 ## How 
 
